@@ -8,41 +8,92 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&display=swap');
-
-    * {
-      -webkit-tap-highlight-color: transparent;
-    }
-    
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
       font-family: 'Roboto', sans-serif;
-      background-color: #0f172a;
-      height: 100vh;
+      background: url('https://media-hosting.imagekit.io//e736823b8b6c445a/c50f9aa2-63ce-4fa4-9b2f-d5a44bc4dded.jpeg?Expires=1834304747&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=u0dSlKl9T8QG09vmclqFFTqtksJfH1QyKuIYUUvzGWGGZUv9umoHJbtfGAIWRDeve5sPkX1m90Er6FlLCxgMmdligFcAxi22mmq1hpqQEoDGI14o8Ucexm-MEeziAKKuLkTX637rsi4zPaO8a3NzxF1KwvfHa6uWHd~6ZH0YIPJC08VBTT0x8-HiP-B7ebZqUErzl0t~46pROiFjS31cs04y4YJmqAx~qO-XCu46ksD34Jz8u0mtLtLRlwj~LvziqDBUX2tvJjGqaPxeULsDYG2ETtZCdwzcH0VxUtMjYvD8AHpEGb8P187VQNN7hoKczQ-9bY3gnH-ZddapD0SVjA__') no-repeat center center fixed;
+      background-size: cover;
+      color: #e5e7eb;
+      transition: background-color 0.3s ease;
     }
 
-    
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(8px);
+      z-index: -1;
+    }
+
+    header, footer {
+      background: rgba(31, 41, 55, 0.75);
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+      padding: 20px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      background: linear-gradient(90deg, #ff8a00, #e52e71);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px;
+      margin: 10px 0;
+      background: rgba(147, 197, 253, 0.1);
+      border-radius: 15px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      background: rgba(147, 197, 253, 0.2);
+    }
+
+    .method {
+      font-weight: bold;
+      font-size: 1.2rem;
+      color: #ff8a00;
+    }
+
+    .title-api {
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    .endpoint a {
+      color: #e5e7eb;
+      font-size: 1.5rem;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .endpoint a:hover {
+      color: #ff8a00;
+      transform: scale(1.2);
+    }
+
     .mobile-menu {
       transform: translateX(-100%);
-      background-color: #0f172a;
-      font-family: 'Poppins', serif;
+      background-color: rgba(31, 41, 55, 0.9);
       transition: transform 0.5s ease-in-out;
     }
 
     .mobile-menu.active {
       transform: translateX(0);
-      background-color: #0f172a;
-    }
-    
-    .navbar {
-      background-color: #0f172a;
     }
 
     .hamburger {
@@ -53,14 +104,14 @@
     .hamburger-line {
       display: block;
       width: 24px;
-      height: 2px;
+      height: 3px;
       margin: 5px auto;
       background-color: white;
-      transition: all 0.5s ease-in-out;
+      transition: all 0.4s ease-in-out;
     }
 
     .hamburger.active .hamburger-line:nth-child(1) {
-      transform: translateY(7px) rotate(45deg);
+        transform: translateY(7px) rotate(45deg);
     }
 
     .hamburger.active .hamburger-line:nth-child(2) {
@@ -70,101 +121,15 @@
     .hamburger.active .hamburger-line:nth-child(3) {
       transform: translateY(-7px) rotate(-45deg);
     }
-    
-    header {
-      margin: 5rem 1.5rem 3rem 1.5rem;
-      padding: 10px 20px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      border-radius: 10px;
-    }
-    
-    header h1 {
-      font-size: px;
-      font-weight: 600;
-      margin-bottom: 8px;
-    }
-    
-    header p {
-      color: white;
-      line-height: 18px;
-      font-size: 15px;
-      font-family: "Poppins", serif;
-    }
-    
-    
-    main {
-      margin-left: 40px;
-      margin-right: 40px;
-      margin-top: 2.2rem;
-    }
-    
-    main h1 {
-     background: linear-gradient(90deg, #ff8a00, #e52e71);
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-     font-size: 25px;
-     font-weight: bold;
-     margin-bottom: 8px;
-    }
-    
-    main .item {
-      display: flex;
-      height: 40px;
-      margin: 5px auto;
-      justify-content: space-between;
-      align-items: center;
-      color: black;
-      background-color: rgba(147, 197, 253, 0.1);
-      border-radius: 20px;
-    }
-    
-    main .item .method {
-      margin-left: 20px;
-      font-weight: bold;
-      font-size: 18px;
-      color: white;
-    }
-    
-    main .item .title-api {
-      color: white;
-      font-weight: bold;
-      font-size: 15px;
-    }
-    
-    main .item .endpoint {
-      margin-right: 20px;
-      color: white;
-      font-size: 25px;
-    }
-   
-    
-    main .item .endpoint a:active {
-      background: linear-gradient(90deg, #ff8a00, #e52e71);
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-    
-    }
-    
-    footer {
-     padding: 20px;
-     margin-top: 2.5rem;
-     background-color: #0f172a;
-     text-align: center;
-     color: white;
-     opacity: .8;
-    }
-    
   </style>
 </head>
-<body class="text-gray-200">
+<body>
 
-  <!-- Navbar -->
   <nav class="navbar fixed top-0 left-0 right-0 z-50 px-4 py-2">
     <div class="container mx-auto flex justify-between items-center">
-     <p class="text-2xl font-bold bg-gradient-to-r from-yellow-400 via-orange-400 to-pink-500 bg-clip-text text-transparent">
+      <p class="text-2xl font-bold bg-gradient-to-r from-yellow-400 via-orange-400 to-pink-500 bg-clip-text text-transparent">
         OtakuAPI
       </p>
-      <!-- Hamburger Menu -->
       <div class="hamburger lg:hidden" id="hamburger">
         <span class="hamburger-line"></span>
         <span class="hamburger-line"></span>
@@ -172,16 +137,46 @@
       </div>
     </div>
   </nav>
-  
 
+<header class="animate__animated animate__fadeInUp text-center mt-20 flex flex-col items-center">
+  <div class="relative w-32 h-32 flex items-center justify-center animate-floating">
+    <!-- Efek cahaya berputar -->
+    <div class="absolute w-[110%] h-[110%] rounded-full animate-spin-glow">
+      <div class="absolute inset-0 w-full h-full rounded-full border-[4px] border-blue-400 blur-xl opacity-80"></div>
+      <div class="absolute inset-0 w-full h-full rounded-full border-[3px] border-blue-500 opacity-60 animate-pulse"></div>
+      <div class="absolute inset-0 w-full h-full rounded-full bg-blue-500 opacity-20 blur-2xl"></div>
+    </div>
 
-<header class="animate__animated animate__fadeInUp">
-  <h1 class="text-3xl font-bold bg-gradient-to-r from-yellow-400 via-orange-400 to-pink-500 bg-clip-text text-transparent">OtakuAPI</h1>
-  <p>OtakuAPI adalah penyedia berbagai macam endpoints fitur untuk Bot Whatsapp, dan telah di sederhankan agar mudah di gunakan</p>
+    <!-- Foto utama -->
+    <img src="https://media-hosting.imagekit.io//3bb94c06a6ed4565/Tenka%20Izumo%20-%20mato%20seihei%20no%20slave.jpeg?Expires=1834305970&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=nXxeNDjxr6QERXGuBwqehj2QdtLraTOeIf1VN-naJv8A2b3vSOMZ3IeZUjijG5f8cMdjFmEwJjm8SqeBQ03o~s-3m7NrdhOaIyie9coHZf92m0iQJdwxHRRL3fJ0dql6xKA4~0EkSBgn5Tt8deZe5wOhJCKtuZShfsgvVOEY9bV~V3YTFqQCUbbHYp2m5JkBZp2uwg-hQAmtbaXn0Vu2IQMsZbl823r5zQM-Sd3YOo1bZc5FDtun5qviN30M6dAPqxolso9dAlNGdNKP5uCDNKzFnH0FH3aAKMexjIA1zREb21ql0R0rdzz5V0XUzH4CcHvf0p1WRZRINP38QWU~9Q__" 
+    class="w-32 h-32 rounded-full object-cover shadow-lg border-4 border-gray-700" 
+    alt="Profile Image">
+  </div>
+
+  <h1 class="mt-4 text-white text-xl font-semibold">OtakuAPI</h1>
+  <p class="text-gray-300">OtakuAPI adalah penyedia berbagai macam endpoints fitur untuk Bot Whatsapp, dan telah disederhanakan agar mudah digunakan.</p>
 </header>
 
+<style>
+  @keyframes spinGlow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  .animate-spin-glow {
+    animation: spinGlow 6s linear infinite;
+  }
 
-  <!-- Mobile Menu -->
+  /* Floating effect (foto bergerak ke atas) */
+  @keyframes floating {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+  }
+  .animate-floating {
+    animation: floating 3s ease-in-out infinite;
+  }
+</style>
+
   <div class="mobile-menu fixed top-0 left-0 h-full w-60 bg-gray-800 z-40 p-6 lg:hidden">
     <div class="flex flex-col space-y-6 mt-16">
       <a href="./index.html" class="hover:text-blue-400 text-white transition-colors"> Home</a>
@@ -190,23 +185,28 @@
       <a href="https://t.me/lahngcok" class="hover:text-blue-400 text-white transition-colors"> Information</a>
     </div>
   </div>
+
+  <main class="animate__animated animate__fadeInUp text-center mt-10">
+    <h1 class="text-3xl font-bold bg-gradient-to-r from-yellow-400 via-orange-400 to-pink-500 bg-clip-text text-transparent">Orderkuota Gateway</h1>
+    
+    <div class="container mx-auto max-w-lg mt-6">
+      <div class="item">
+        <p class="method">Try</p>
+        <p class="title-api">Create Payment</p>
+        <p class="endpoint"><a target="blank" class="fas fa-arrow-circle-right" href="https://otaku-rest-api.vercel.app/api/orkut/createpayment?apikey=&amount=&codeqr="></a></p>
+      </div>
+
+      <div class="item">
+        <p class="method">Try</p>
+        <p class="title-api">Cek Status</p>
+        <p class="endpoint"><a target="blank" class="fas fa-arrow-circle-right" href="https://otaku-rest-api.vercel.app/api/orkut/cekstatus?apikey=&merchant=&keyorkut="></a></p>
+      </div>
+    </div>
+  </main>
   
-<main class="animate__animated animate__fadeInUp">
-    <h1 class="text-2xl font-bold bg-gradient-to-r from-yellow-400 via-orange-400 to-pink-500 bg-clip-text text-transparent">Orderkuota Gateway</h1>
-     <div class="item">
-       <p class="method">Try</p>
-       <p class="title-api">Create Payment</p>
-       <p class="endpoint"><a target="blank" class="fas fa-arrow-circle-right" href="https://otaku-rest-api.vercel.app/api/orkut/createpayment?apikey=&amount=&codeqr="></a></p>
-     </div>
-          <div class="item">
-       <p class="method">Try</p>
-       <p class="title-api">Cek Status</p>
-       <p class="endpoint"><a target="blank" class="fas fa-arrow-circle-right" href="https://otaku-rest-api.vercel.app/api/orkut/cekstatus?apikey=&merchant=&keyorkut="></a></p>
-     </div>
-</main>
-  
-<main class="animate__animated animate__fadeInUp">
-    <h1 class="text-2xl font-bold bg-gradient-to-r from-yellow-400 via-orange-400 to-pink-500 bg-clip-text text-transparent">Downloader</h1>
+  <main class="animate__animated animate__fadeInUp text-center mt-10">
+    <h1 class="text-3xl font-bold bg-gradient-to-r from-yellow-400 via-orange-400 to-pink-500 bg-clip-text text-transparent">Downloader</h1>
+        <div class="container mx-auto max-w-lg mt-6">
      <div class="item">
        <p class="method">Try</p>
        <p class="title-api">Tiktok</p>
@@ -258,9 +258,10 @@
        <p class="endpoint"><a target="blank" class="fas fa-arrow-circle-right" href="https://otaku-rest-api.vercel.app/api/download/soundcloud?url="></a></p>
      </div>                                    
  </main>
- 
- <main class="animate__animated animate__fadeInUp">
-    <h1 class="text-2xl font-bold bg-gradient-to-r from-yellow-400 via-orange-400 to-pink-500 bg-clip-text text-transparent">Openai & Gpt</h1>
+
+  <main class="animate__animated animate__fadeInUp text-center mt-10">
+    <h1 class="text-3xl font-bold bg-gradient-to-r from-yellow-400 via-orange-400 to-pink-500 bg-clip-text text-transparent">Openai & Gpt</h1>
+        <div class="container mx-auto max-w-lg mt-6">
      <div class="item">
        <p class="method">Try</p>
        <p class="title-api">Openai</p>
@@ -288,8 +289,9 @@
      </div>
 </main>
 
- <main class="animate__animated animate__fadeInUp">
-    <h1 class="text-2xl font-bold bg-gradient-to-r from-yellow-400 via-orange-400 to-pink-500 bg-clip-text text-transparent">Tools & Search</h1>
+   <main class="animate__animated animate__fadeInUp text-center mt-10">
+    <h1 class="text-3xl font-bold bg-gradient-to-r from-yellow-400 via-orange-400 to-pink-500 bg-clip-text text-transparent">Tools & Search</h1>
+        <div class="container mx-auto max-w-lg mt-6">
      <div class="item">
        <p class="method">Try</p>
        <p class="title-api">Bstation</p>
@@ -347,8 +349,9 @@
      </div>   
 </main>
 
- <main class="animate__animated animate__fadeInUp">
-    <h1 class="text-2xl font-bold bg-gradient-to-r from-yellow-400 via-orange-400 to-pink-500 bg-clip-text text-transparent">Sosmed Stalking</h1>
+  <main class="animate__animated animate__fadeInUp text-center mt-10">
+    <h1 class="text-3xl font-bold bg-gradient-to-r from-yellow-400 via-orange-400 to-pink-500 bg-clip-text text-transparent">Sosmed Stalking</h1>
+        <div class="container mx-auto max-w-lg mt-6">
      <div class="item">
        <p class="method">Try</p>
        <p class="title-api">Tiktok Stalk</p>
@@ -361,8 +364,9 @@
      </div>
 </main>
 
- <main class="animate__animated animate__fadeInUp">
-    <h1 class="text-2xl font-bold bg-gradient-to-r from-yellow-400 via-orange-400 to-pink-500 bg-clip-text text-transparent">Image Creator</h1>
+  <main class="animate__animated animate__fadeInUp text-center mt-10">
+    <h1 class="text-3xl font-bold bg-gradient-to-r from-yellow-400 via-orange-400 to-pink-500 bg-clip-text text-transparent">Image Creator</h1>
+            <div class="container mx-auto max-w-lg mt-6">
      <div class="item">
        <p class="method">Try</p>
        <p class="title-api">Brat</p>
@@ -379,27 +383,26 @@
        <p class="endpoint"><a target="blank" class="fas fa-arrow-circle-right" href="https://otaku-rest-api.vercel.app/api/imagecreator/qc?text=&fotoUrl=&nama="></a></p>
      </div>
 </main>
-<footer>
-  <span>© 2025 Appolo. All rights reserved.</span>
-</footer>
 
-<script>
-  // Mobile menu functionality
-  const hamburger = document.getElementById('hamburger');
-  const mobileMenu = document.querySelector('.mobile-menu');
+  <footer class="text-center mt-10">
+    <span>© 2025 Appolo. All rights reserved.</span>
+  </footer>
 
-  hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    mobileMenu.classList.toggle('active');
-  });
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.querySelector('.mobile-menu');
 
-  // Close mobile menu when clicking outside
-  document.addEventListener('click', (e) => {
-    if (!hamburger.contains(e.target) &&  !mobileMenu.contains(e.target)) {
-      hamburger.classList.remove('active');
-      mobileMenu.classList.remove('active');
-    }
-  });
-</script>
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      mobileMenu.classList.toggle('active');
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
+        hamburger.classList.remove('active');
+        mobileMenu.classList.remove('active');
+      }
+    });
+  </script>
 </body>
 </html>
