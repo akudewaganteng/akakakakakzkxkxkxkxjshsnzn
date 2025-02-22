@@ -30,6 +30,7 @@ const { remini } = require('./function/remini.js')
 const { chatbot } = require('./function/gpt.js')
 const { uploaderImg } = require('./function/uploadImage.js');
 const { tiktokdl } = require('./function/tiktok.js') 
+const { appolofree, setUserName } = require('./function/freetools.js');
 const {
   convertCRC16,
   generateTransactionId,
@@ -72,7 +73,43 @@ app.get('/api/orkut/createpayment', async (req, res) => {
     }
 })
 
+app.get('/api/tools/obfuscated', async (req, res) => { const { apikey, code, nama } = req.query;
 
+if (!apikey || !code || !nama) {
+    return res.json({ error: 'Missing parameters! Required: apikey, code, nama' });
+}
+
+const check = global.apikey;
+if (!check.includes(apikey)) {
+    return res.json({
+        status: false,
+        creator: global.creator,
+        result: "Apikey Tidak Valid!."
+    });
+}
+
+try {
+    await setUserName(nama);
+    const obfuscatedCode = await appolofree(code);
+    
+    if (!obfuscatedCode) {
+        return res.json({
+            status: false,
+            creator: global.creator,
+            result: "Obfuscation failed."
+        });
+    }
+
+    res.json({
+        status: true,
+        creator: global.creator,
+        result: obfuscatedCode
+    });
+} catch (error) {
+    console.log(error);
+    res.status(500).json({ error: "An error occurred while fetching data." });
+}
+});
 
 app.get('/api/orkut/cekstatus', async (req, res) => {
     const { merchant, keyorkut } = req.query;
