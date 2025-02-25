@@ -1,3 +1,3 @@
 
 global.creator = "Appolo Nieh Dek"
-global.apikey = ["gwjagocilgakeklo"]
+global.apikey = ["yagwjago"]
